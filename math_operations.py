@@ -1,4 +1,6 @@
 def basic_math(a, b):
+    if not (isinstance(a, (int, float)) and isinstance(b, (int, float))):
+        return "Inputs must be numbers"
     addition = a + b
     subtraction = a - b
     multiplication = a * b
