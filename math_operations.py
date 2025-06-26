@@ -7,12 +7,12 @@ def basic_math(a, b):
     floor_division = a // b if b != 0 else "Cannot compute floor division with zero"
     
     return {
-        "addition": addition,
-        "subtraction": subtraction,
-        "multiplication": multiplication,
-        "division": division,
-        "modulus": modulus,
-        "floor_division": floor_division
+        "addition": f"{addition:.2f}",
+        "subtraction": f"{subtraction:.2f}",
+        "multiplication": f"{multiplication:.2f}",
+        "division": division if isinstance(division, str) else f"{division:.2f}",
+        "modulus": modulus if isinstance(modulus, str) else f"{modulus:.2f}",
+        "floor_division": floor_division if isinstance(floor_division, str) else f"{floor_division:.2f}"
     }
 
 if __name__ == "__main__":
