@@ -1,0 +1,26 @@
+name: Run Python Code from Specific Commit
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Commit SHA to run'
+        required: true
+        type: string
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout specific commit
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.inputs.commit }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Run math_operations.py
+      run: python math_operations.py
